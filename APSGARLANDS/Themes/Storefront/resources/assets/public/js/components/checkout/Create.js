@@ -39,6 +39,7 @@ export default {
             stripeCardElement: null,
             stripeError: null,
             authorizeNetToken: null,
+            termsModalContent: "",   //For Terms and Conditions Modal popup
         };
     },
 
@@ -703,5 +704,34 @@ $.ajax({
                 autoOpen: true,
             });
         },
+
+        openModal(termsUrl) {
+            // Make an AJAX request to the Laravel named route
+            $.ajax({
+                method: "GET",
+                url: termsUrl,
+                success: (data)=>{
+                    let terms_condition_html = $(data).find('.custom-page-content').html();
+                    // Assign the HTML content to the Vue property
+                    this.termsModalContent = terms_condition_html;
+                    // Set showTermsModal to true to display the modal
+                    // Show the modal
+                    $('#terms-modal').modal('show');
+                }
+                })
+              .catch((error) => {
+                console.error(error);
+              });
+          },
+
+          hideTermsModal(){
+            $('#terms-modal').modal('hide');
+          },
+        //If we need accept the terms button 
+        //   acceptTerms(){
+        //     this.form.terms_and_conditions = true;
+        //     hideTermsModal();
+        //   }
+
     },
 };

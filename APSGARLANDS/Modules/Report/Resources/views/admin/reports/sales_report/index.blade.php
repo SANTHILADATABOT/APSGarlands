@@ -32,6 +32,7 @@
                     <tr>
                         <td>{{ $data->start_date->toFormattedDateString() }} - {{ $data->end_date->toFormattedDateString() }}</td>
                         <td>{{ $data->total_orders }}</td>
+                        <td>{{ $data->total_orders }}</td>
                         <td>{{ $data->total_products }}</td>
                         <td>{{ $data->sub_total->format() }}</td>
                         <td>{{ $data->shipping_cost->format() }}</td>

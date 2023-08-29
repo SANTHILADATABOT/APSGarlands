@@ -78,9 +78,10 @@
 
                     <label for="terms-and-conditions" class="form-check-label">
                         {{ trans('storefront::checkout.i_agree_to_the') }}
-                        <a href="{{ $termsPageURL }}">
+                        {{-- <a href="{{ $termsPageURL }}">
                             {{ trans('storefront::checkout.terms_&_conditions') }}
-                        </a>
+                        </a> --}}
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#showTermsModal" id="termslink" @click.prevent="openModal('{{ $termsPageURL }}')"> {{ trans('storefront::checkout.terms_&_conditions') }} </a>
                     </label>
 
                     <span class="error-message" v-if="errors.has('terms_and_conditions')"
@@ -97,3 +98,21 @@
         </div>
     </div>
 </aside>
+
+
+<div class="modal fade" id="terms-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" class="px-1">
+            {{-- <div class="modal-header">
+                <button type="button" class="btn btn-outline-danger mt-3" data-bs-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+            </div> --}}
+            <div class="modal-body">
+                <div v-html="termsModalContent" class="termsmodalcontent"></div>
+            </div>
+            <div class="modal-footer">
+              {{-- <button type ="button" class="btn btn-primary" @click.prevent="acceptTerms()">Accept</button> --}}
+              <button type ="button" class="btn btn-primary" @click.prevent="hideTermsModal()" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

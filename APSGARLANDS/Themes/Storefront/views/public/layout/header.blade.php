@@ -57,7 +57,7 @@
                                 <div class="icon-wrap">
                                     <i class="las la-phone"></i>
                                 </div>
-                                <span>{{ trans('storefront::layout.contact') }}</span>
+                                <span style="display:none">{{ trans('storefront::layout.contact') }}</span>
                             </a>
                         </div>
 
@@ -66,7 +66,7 @@
                                 <div class="icon-wrap">
                                     <i class="las la-random"></i>
                                 </div>
-                                <span>{{ trans('storefront::layout.compare') }}</span>
+                                <span style="display:none">{{ trans('storefront::layout.compare') }}</span>
                             </a>
                         </div>
                         

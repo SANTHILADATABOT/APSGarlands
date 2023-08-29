@@ -39,12 +39,14 @@
 
             <tbody>
                 @forelse ($report as $data)
-                    <tr>
+                @if($data->shipping_method !== 'null')
+                    <tr>                        
                         <td>{{ $data->start_date->toFormattedDateString() }} - {{ $data->end_date->toFormattedDateString() }}</td>
                         <td>{{ $data->shipping_method }}</td>
                         <td>{{ $data->total_orders }}</td>
                         <td>{{ $data->total->format() }}</td>
                     </tr>
+                    @endif
                 @empty
                     <tr>
                         <td class="empty" colspan="8">{{ trans('report::admin.no_data') }}</td>

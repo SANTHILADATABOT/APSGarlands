@@ -26945,6 +26945,13 @@ textarea.form-control {
     flex-direction: column;
   }
 }
+.termsmodalcontent {
+  margin-top: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  text-align: justify;
+}
+
 .order-complete-wrap {
   margin-top: 50px;
 }

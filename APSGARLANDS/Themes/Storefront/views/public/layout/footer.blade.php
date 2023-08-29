@@ -139,27 +139,24 @@
                     @endif
                 </div>
             </div>
-
             <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="row align-items-center">
-                    <div class="col-md-9 col-sm-18">
-                        <div class="footer-text">
-                            {!! $copyrightText !!}
-                        </div>
+                <div style="display: flex; align-items: center;">
+                    <div class="footer-text">
+                        {!! $copyrightText !!}
                     </div>
 
                     @if ($acceptedPaymentMethodsImage->exists)
-                        <div class="col-md-9 col-sm-18">
-                            <div class="footer-payment">
-                                <img src="{{ $acceptedPaymentMethodsImage->path }}" alt="accepted payment methods">
-                            </div>
+                        <div class="footer-payment">
+                            <img src="{{ $acceptedPaymentMethodsImage->path }}" alt="accepted payment methods">
                         </div>
                     @endif
                 </div>
+
                 <div>
-                    <p>Powered by <a href="https://www.santhila.co/" target="_blank">Santhila DataBot Pvt Ltd.</a></p>
+                    <p>Powered by <a href="https://www.santhila.co/" target="_blank">Santhila DataBot</a></p>
                 </div>
             </div>
+
         </div>
     </div>
 </footer>
