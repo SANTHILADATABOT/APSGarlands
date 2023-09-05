@@ -24,6 +24,8 @@ class SettingDatabaseSeeder extends Seeder
             'customer_role' => 2,
             'reviews_enabled' => true,
             'auto_approve_reviews' => true,
+            'testimonial_slider_enabled' => true,
+            'my_testimonial_enabled' => true,
             'cookie_bar_enabled' => true,
             'supported_currencies' => ['USD'],
             'default_currency' => 'USD',

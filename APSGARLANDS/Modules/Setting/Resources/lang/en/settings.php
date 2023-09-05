@@ -81,6 +81,10 @@ return [
         'enable_cod' => 'Enable Cash On Delivery',
         'enable_bank_transfer' => 'Enable Bank Transfer',
         'enable_check_payment' => 'Enable Check / Money Order',
+        //TESTIMONIAL SLIDER
+        'allow_testimonial_slider' => 'Show Testimonial Slider in your website',
+        //MY TESTIMONIALS IN MY ACCOUNT
+        'allow_my_testimonial' => 'Show My Testimonial option in My Account',
     ],
     'validation' => [
         'sqlite_is_not_installed' => 'SQLite is not installed.',

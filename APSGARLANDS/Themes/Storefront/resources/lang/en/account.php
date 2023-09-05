@@ -13,6 +13,7 @@ return [
         'my_downloads' => 'My Downloads',
         'my_wishlist' => 'My Wishlist',
         'my_reviews' => 'My Reviews',
+        'my_testimonials' => 'My Testimonials',
         'my_addresses' => 'My Addresses',
         'my_profile' => 'My Profile',
         'logout' => 'Logout',
