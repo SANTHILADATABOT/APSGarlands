@@ -167,4 +167,11 @@ return [
     'supported_countries.*' => 'Supported Countries',
     'supported_locales.*' => 'Supported Locales',
     'supported_currencies.*' => 'Supported Currencies',
+
+    //TESTIMONIAL SLIDER
+    'testimonial_slider' => 'Testimonial Slider',
+
+    //MY TESTIMONIAL
+    'my_testimonial' => 'My Testimonial',
+    
 ];

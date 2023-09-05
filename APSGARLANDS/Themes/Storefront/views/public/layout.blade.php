@@ -17,6 +17,9 @@
     @stack('meta')
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
     @if (is_rtl())
         <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.rtl.css')) }}">
@@ -92,7 +95,7 @@
         @include('public.layout.breadcrumb')
 
         @yield('content')
-
+        <div id="testimonial_slide_div"></div>
         @include('public.home.sections.subscribe')
         @include('public.layout.footer')
 
@@ -112,6 +115,43 @@
     @stack('scripts')
 
     {!! setting('custom_footer_assets') !!}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '{{ route('testimonials.slider') }}',
+                method: 'GET',
+                dataType: 'html', // Expect HTML content in response
+                success: function(response) {
+                    $('#testimonial_slide_div').html(response);
+                    $('#testimonials-list').owlCarousel({
+                        loop: true,
+                        center: true,
+                        items: 5, // Display 5 testimonials at a time
+                        margin: 0,
+                        autoplay: true,
+                        dots: true,
+                        autoplayTimeout: 2000,
+                        smartSpeed: 450,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            768: {
+                                items: 2
+                            },
+                            1170: {
+                                items: 3
+                            }
+                        }
+                    });
+                },
+                error: function() {
+                    console.error('Error loading testimonials');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
