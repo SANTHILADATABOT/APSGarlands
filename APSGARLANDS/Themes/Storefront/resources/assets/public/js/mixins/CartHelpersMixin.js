@@ -84,7 +84,7 @@ export default {
             this.loadingOrderSummary = true;
 
             this.changeShippingMethod(shippingMethodName);
-            console.log("shippingMethodName",shippingMethodName);
+
             $.ajax({
                 method: 'POST',
                 url: route('cart.shipping_method.store', { shipping_method: shippingMethodName }),

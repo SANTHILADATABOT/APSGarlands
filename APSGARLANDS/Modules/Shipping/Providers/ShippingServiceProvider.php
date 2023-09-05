@@ -19,8 +19,8 @@ class ShippingServiceProvider extends ServiceProvider
             return;
         }
 
-       // $this->registerFreeShipping();
-        // $this->registerLocalPickup();
+        $this->registerFreeShipping();
+        $this->registerLocalPickup();
         $this->registerFlatRate();
     }
 
