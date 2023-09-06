@@ -120,7 +120,6 @@
     @if (setting('testimonial_slider_enabled'))
         <script>
             $(document).ready(function() {
-                alert("hi");
                 $.ajax({
                     url: '{{ route('testimonials.slider') }}',
                     method: 'GET',
