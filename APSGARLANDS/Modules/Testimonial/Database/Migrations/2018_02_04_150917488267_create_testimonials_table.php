@@ -15,7 +15,7 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id',11);
+            $table->integer('user_id');
             $table->string('user_name', 50);
             $table->string('comment', 200);
             $table->decimal('value', 18, 4)->unsigned()->nullable();
