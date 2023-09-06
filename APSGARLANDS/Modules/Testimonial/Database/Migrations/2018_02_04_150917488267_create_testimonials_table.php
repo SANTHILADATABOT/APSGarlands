@@ -15,11 +15,10 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id',11);
+            $table->integer('user_id')->unsigned();
             $table->string('user_name', 50);
             $table->string('comment', 200);
-            $table->decimal('value', 18, 4)->unsigned()->nullable();
-            $table->boolean('is_active');
+            $table->tinyInteger('is_active')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
