@@ -95,7 +95,9 @@
         @include('public.layout.breadcrumb')
 
         @yield('content')
-        <div id="testimonial_slide_div"></div>
+        @if (setting('testimonial_slider_enabled'))
+            <div id="testimonial_slide_div"></div>
+        @endif
         @include('public.home.sections.subscribe')
         @include('public.layout.footer')
 
@@ -120,7 +122,7 @@
     @if (setting('testimonial_slider_enabled'))
         <script>
             $(document).ready(function() {
-                alert("hi");
+        console.log("");
                 $.ajax({
                     url: '{{ route('testimonials.slider') }}',
                     method: 'GET',
