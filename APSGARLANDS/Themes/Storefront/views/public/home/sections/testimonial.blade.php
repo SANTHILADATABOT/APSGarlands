@@ -1,6 +1,4 @@
-<div>
-    Hello 
-</div>
+
 
 @if (setting('testimonial_slider_enabled'))
 <section>
