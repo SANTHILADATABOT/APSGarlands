@@ -27,6 +27,7 @@ class SettingController
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+    // public function update(UpdateSettingRequest $request)
     public function update(UpdateSettingRequest $request)
     {
         $this->handleMaintenanceMode($request);
