@@ -93,7 +93,7 @@
                             </td>
 
                             <td>                                                   
-                                {{ $item->updated_at}}  
+                                {{ $item->updated_at->toFormattedDateString()}}  
                             </td>
                         </tr>   
                         <!-- @else    

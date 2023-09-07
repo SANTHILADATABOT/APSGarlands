@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class AbandonedWishlistReport extends Report
 {
-    protected $date='wish_lists.created_at';
+    protected $date='wish_lists.updated_at';
 
     protected function view()
     {
