@@ -39,7 +39,7 @@ class ReportController
         'sales_report' => SalesReport::class,
         'search_report' => SearchReport::class,
         'shipping_report' => ShippingReport::class,
-        'tax_report' => TaxReport::class,
+        // 'tax_report' => TaxReport::class,
     ];
 
     /**
