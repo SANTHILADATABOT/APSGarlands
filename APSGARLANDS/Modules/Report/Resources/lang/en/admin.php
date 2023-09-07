@@ -7,6 +7,7 @@ return [
     'filters' => [
         'report_type' => 'Report Type',
         'report_types' => [
+            'abandoned_wishlist' => 'Abandoned Wishlist',
             'coupons_report' => 'Coupons Report',
             'customers_order_report' => 'Customers Order Report',
             'products_purchase_report' => 'Products Purchase Report',
@@ -53,12 +54,22 @@ return [
         'tax_name' => 'Tax Name',
     ],
     'table' => [
+        'user' => 'User',
         'date' => 'Date',
         'orders' => 'Orders',
         'products' => 'Products',
         'product' => 'Product',
         'products_count' => 'Products Count',
         'total' => 'Total',
+        'customer' => 'User',
+
+        // abandoned_report
+        'product_id' => 'Order Id',
+        'product_name' => 'Product Name',
+        'product_price' => 'Product Price',
+        'stock' => 'Stock',
+        'reason' => 'Reason',
+        'date' => 'Date',
 
         // coupons_report
         'coupon_name' => 'Coupon Name',

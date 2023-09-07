@@ -17,9 +17,12 @@
     @stack('meta')
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500&display=swap" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+=======
+>>>>>>> abandoned_wishlist_report_with_filter
 
     @if (is_rtl())
         <link rel="stylesheet" href="{{ v(Theme::url('public/css/app.rtl.css')) }}">
@@ -114,6 +117,7 @@
     @stack('scripts')
 
     {!! setting('custom_footer_assets') !!}
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     @if (setting('testimonial_slider_enabled'))
@@ -160,6 +164,8 @@
         </script>
     @endif
 
+=======
+>>>>>>> abandoned_wishlist_report_with_filter
 </body>
 
 </html>
