@@ -95,7 +95,7 @@
         @include('public.layout.breadcrumb')
 
         @yield('content')
-        <div id="testimonial_slide_div"></div>
+
         @include('public.home.sections.subscribe')
         @include('public.layout.footer')
 
@@ -120,13 +120,13 @@
     @if (setting('testimonial_slider_enabled'))
         <script>
             $(document).ready(function() {
-                alert("hi");
                 $.ajax({
                     url: '{{ route('testimonials.slider') }}',
                     method: 'GET',
-                    dataType: 'html', // Expect HTML content in response
+                    dataType: 'html',
                     success: function(response) {
                         $('#testimonial_slide_div').html(response);
+                        //testimonial_slide_div - THE ELEMENT IS LOCATED IN THE FILE PATH->Themes\Storefront\views\public\home\index.blade.php
                         $('#testimonials-list').owlCarousel({
                             loop: true,
                             center: true,
