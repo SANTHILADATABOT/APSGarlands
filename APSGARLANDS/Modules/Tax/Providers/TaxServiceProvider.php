@@ -16,6 +16,15 @@ class TaxServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+
+     protected $listen = [
+        TaxEvent::class => [
+            MyTaxListeners::class,
+        ],
+    ];
+    
+
     public function boot()
     {
         TabManager::register('tax_classes', TaxTabs::class);

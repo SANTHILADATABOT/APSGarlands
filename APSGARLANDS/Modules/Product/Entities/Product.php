@@ -547,6 +547,7 @@ class Product extends Model
      */
     public function table($request)
     {
+
         $query = $this->newQuery()
             ->withoutGlobalScope('active')
             ->withName()
@@ -621,5 +622,9 @@ class Product extends Model
     public function searchExactColumn()
     {
         return 'name';
+    }
+    public function wishListedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'wish_lists')->withTimestamps();
     }
 }

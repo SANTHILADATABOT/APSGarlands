@@ -147,9 +147,11 @@ class User extends EloquentUser implements AuthenticatableContract
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
+    
     public function wishlist()
     {
-        return $this->belongsToMany(Product::class, 'wish_lists')->withTimestamps();
+        // return $this->belongsToMany(Product::class, 'wish_lists')->withTimestamps();
+        return $this->belongsToMany(Product::class, 'wish_lists')->where('is_deleted', 0)->withTimestamps();
     }
 
     /**

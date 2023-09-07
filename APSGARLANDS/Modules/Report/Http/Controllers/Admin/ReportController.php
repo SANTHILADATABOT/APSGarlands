@@ -16,6 +16,7 @@ use Modules\Report\TaggedProductsReport;
 use Modules\Report\BrandedProductsReport;
 use Modules\Report\ProductsPurchaseReport;
 use Modules\Report\CategorizedProductsReport;
+use Modules\Report\AbandonedWishlistReport;
 
 class ReportController
 {
@@ -25,6 +26,7 @@ class ReportController
      * @var array
      */
     private $reports = [
+        'abandoned_wishlist' => AbandonedWishlistReport::class,
         'coupons_report' => CouponsReport::class,
         'customers_order_report' => CustomersOrderReport::class,
         'products_purchase_report' => ProductsPurchaseReport::class,
@@ -48,11 +50,12 @@ class ReportController
      */
     public function index(Request $request)
     {
-        $type = $request->query('type');
+        $type = $request->query('type');        
 
         if (! $this->reportTypeExists($type)) {
             return redirect()->route('admin.reports.index', ['type' => 'coupons_report']);
         }
+
 
         return $this->report($type)->render($request);
     }

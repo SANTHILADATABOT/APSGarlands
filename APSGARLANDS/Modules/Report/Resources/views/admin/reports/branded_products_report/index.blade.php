@@ -4,7 +4,7 @@
     <div class="form-group">
         <label for="brand">{{ trans('report::admin.filters.brand') }}</label>
 
-        <input type="text" name="brand" class="form-control" id="brand" value="{{ $request->brand }}">
+        <input type="text" name="brand" class="form-control" id="brand" value="{{ $request->brand }}"> 
     </div>
 @endsection
 

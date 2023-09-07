@@ -60,14 +60,45 @@ export default {
         });
     },
 
-    removeFromWishlist(productId) {
+
+    removeMultiDatasFromWishlist(productsDataId, getReason) {
+                
+        console.log('productsDataId',productsDataId);        
+        console.log('getReason',getReason);        
+
+        // $.ajax({
+        //     method: "DELETE",
+        //     url: route("wishlist.destroy", { productId, proData }),
+        // });
+
+        $.ajax({
+            method: "DELETE",
+            url: route('wishlist.products.delete',{ productsDataId, getReason })
+        })
+    },
+
+
+
+    removeFromWishlist(productId, data) {
+        
+        var proData = data.reason;       
+
+        console.log('proData',proData);
+
         this.state.wishlist.splice(this.state.wishlist.indexOf(productId), 1);
 
         $.ajax({
             method: "DELETE",
-            url: route("wishlist.destroy", { productId }),
+            url: route("wishlist.destroy", { productId, proData }),
         });
     },
+
+
+
+
+   
+
+
 
     inCompareList(productId) {
         return this.state.compareList.includes(productId);

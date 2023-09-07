@@ -11,7 +11,7 @@ class CustomersOrderReport extends Report
         return 'report::admin.reports.customers_order_report.index';
     }
 
-    protected function query()
+    protected function query() 
     {
         return Order::select('customer_id', 'customer_first_name', 'customer_last_name', 'customer_email')
             ->selectRaw('MIN(orders.created_at) as start_date')
