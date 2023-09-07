@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('wish_lists', function (Blueprint $table) {
-            $table->integer('is_deleted');
-            $table->string('reason');
+            $table->integer('is_deleted')->nullable();
+            $table->string('reason')->nullable();
         });
     }
 
