@@ -32,7 +32,7 @@ class TestimonialController extends Controller
 
     public function store(Request $request)
     {
-dd($request->name);
+
         Testimonial::create([
             'user_id' => auth()->id(),
             'user_name' => $request->name,
