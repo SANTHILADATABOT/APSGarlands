@@ -20,6 +20,8 @@ return [
             'sales_report' => 'Sales Report',
             'search_report' => 'Search Report',
             'shipping_report' => 'Shipping Report',
+            'abandoned_cart_list_report' => 'Abandoned Cart List Report',
+
         ],
         'date_start' => 'Date Start',
         'date_end' => 'Date End',
@@ -118,5 +120,12 @@ return [
 
         // tax report
         'tax_name' => 'Tax Name',
+        //ABANDONED CART LIST REPROT
+        'abandoned_products_name' => 'Products Name',
+        'abandoned_products_count'=> 'Products Count',
+        'abandoned_customer_name' => 'Customer Name',
+        'abandoned_rate' => 'Price',
+        'abandoned_date'=> 'Date',
+        'abandoned_reason'=> 'Reason',
     ],
 ];

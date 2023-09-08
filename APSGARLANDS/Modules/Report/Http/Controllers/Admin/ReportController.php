@@ -17,6 +17,7 @@ use Modules\Report\BrandedProductsReport;
 use Modules\Report\ProductsPurchaseReport;
 use Modules\Report\CategorizedProductsReport;
 use Modules\Report\AbandonedWishlistReport;
+use Modules\Report\AbandonedCartListReport;
 
 class ReportController
 {
@@ -39,6 +40,8 @@ class ReportController
         'sales_report' => SalesReport::class,
         'search_report' => SearchReport::class,
         'shipping_report' => ShippingReport::class,
+        'abandoned_cart_list_report'=>AbandonedCartListReport::class,
+
         // 'tax_report' => TaxReport::class,
     ];
 
