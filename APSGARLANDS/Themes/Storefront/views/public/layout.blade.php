@@ -156,9 +156,6 @@
             });
         </script>
     @endif
-
-=======
->>>>>>> abandoned_wishlist_report_with_filter
 </body>
 
 </html>
