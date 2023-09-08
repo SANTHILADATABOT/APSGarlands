@@ -121,25 +121,16 @@ export default {
         },       
         
         
-        remove() {            
-            // console.log('my product ', this.productToBeClear.product_id); 
-            this.products.data.splice(this.products.data.indexOf(this.productToBeClear), 1);
-            this.products.total--;
-            
-            
-            let desc = $("#abort_reason").val();
-            console.log('my reason ', desc);   
-            
-            this.productToBeClear.reason = desc;
-
-            // const requestData = {
-            //     desc: desc,
-            // };
-
-            // console.log('data',requestData.desc);
-            
-                               
+        remove() {                        
+            // this.products.data.splice(this.products.data.indexOf(this.productToBeClear), 1);
+            // this.products.total--; 
                         
+            let desc = $("#abort_reason").val();                          
+            this.productToBeClear.reason = desc;
+                     
+            this.products.data = this.products.data.filter(product => product.id !== this.productToBeClear.product_id);
+            this.products.total--; 
+                                                       
             store.removeFromWishlist(this.productToBeClear.product_id, this.productToBeClear);   
             
             $('#deleteWishListProduct').modal('hide');
