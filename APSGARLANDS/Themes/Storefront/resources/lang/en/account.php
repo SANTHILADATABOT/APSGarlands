@@ -69,6 +69,9 @@ return [
         'rating' => 'RATING',
         'no_reviews' => 'You haven\'t reviewed any product yet.',
     ],
+    'testimonials' => [
+        'no_testimonials' => 'You don\'t have a Testimonial',
+    ],
     'addresses' => [
         'confirm' => 'Are you sure want to delete this address?',
         'edit' => 'Edit',

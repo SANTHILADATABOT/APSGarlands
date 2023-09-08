@@ -16,7 +16,7 @@ class SettingController
     public function edit()
     {
         $settings = setting()->all();
-        dd($settings);
+        
         $tabs = TabManager::get('settings');
 
         return view('setting::admin.settings.edit', compact('settings', 'tabs'));
@@ -31,7 +31,6 @@ class SettingController
     // public function update(UpdateSettingRequest $request)
     public function update(UpdateSettingRequest $request)
     {
-        dd($request);
         $this->handleMaintenanceMode($request);
 
         setting($request->except('_token', '_method'));
