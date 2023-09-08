@@ -47,7 +47,8 @@
     @if (setting('storefront_product_tabs_2_section_enabled'))
         <product-tabs-two :data="{{ json_encode($tabProductsTwo) }}"></product-tabs-two>
     @endif
-
-    <div id="testimonial_slide_div"></div>
+    @if (setting('testimonial_slider_enabled'))
+        <div id="testimonial_slide_div"></div>
+    @endif
 
 @endsection

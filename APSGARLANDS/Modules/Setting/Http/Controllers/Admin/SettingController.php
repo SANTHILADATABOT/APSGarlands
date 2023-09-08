@@ -16,6 +16,7 @@ class SettingController
     public function edit()
     {
         $settings = setting()->all();
+        
         $tabs = TabManager::get('settings');
 
         return view('setting::admin.settings.edit', compact('settings', 'tabs'));
