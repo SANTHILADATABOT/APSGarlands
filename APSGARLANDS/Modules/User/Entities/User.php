@@ -32,6 +32,12 @@ class User extends EloquentUser implements AuthenticatableContract
         'last_name',
         'first_name',
         'permissions',
+        'sso_id',
+        'sso_username',
+        'sso_locale',
+        'sso_avatar',
+        'is_sso_google',
+        'is_sso_fb',
     ];
 
     /**
