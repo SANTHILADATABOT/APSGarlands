@@ -25,6 +25,17 @@ export default {
     },
 
     computed: {
+         // Computed property to check if all individual checkboxes are checked
+        isAllChecked: {
+            get() {
+            return this.selectedProducts.length === this.products.data.length;
+            },
+            set(value) {
+            // Set the selectedProducts based on isAllChecked
+            this.selectedProducts = value ? this.products.data.map(product => product.id) : [];
+            },
+        },
+
         wishlistIsEmpty() {
             return this.products.data.length === 0;
         },
@@ -54,6 +65,10 @@ export default {
             // Toggle the selected state of all products based on selectAllChecked
             this.selectedProducts = this.selectAllChecked ? this.products.data.map(product => product.id) : [];
         },
+        checkSelectAll() {
+            // Check if any of the individual checkboxes is unchecked
+            this.selectAllChecked = this.isAllChecked;
+          },
         
         fetchWishlist() {
             this.fetchingWishlist = true;
@@ -117,7 +132,9 @@ export default {
             store.removeMultiDatasFromWishlist(productsId,this.productToBeClear.reason);
                         
             $('#deleteWishListProducts').modal('hide');     
-            this.abortReason2 = ''; // Clear the textarea value      
+            this.abortReason2 = ''; // Clear the textarea value   
+            
+            this.isAnyCheckboxChecked = false;
         },       
         
         
@@ -135,6 +152,8 @@ export default {
             
             $('#deleteWishListProduct').modal('hide');
             this.abortReason = ''; // Clear the textarea value
+
+            this.isAnyCheckboxChecked = false;
         }, 
         
         
