@@ -21,8 +21,12 @@ export default {
             form: {
                 customer_email: this.customerEmail,
                 customer_phone: this.customerPhone,
-                billing: {},
-                shipping: {},
+                billing: {
+                    zip: '' ,
+                },
+                shipping: {
+                    zip: '' 
+                },
                 billingAddressId: null,
                 shippingAddressId: null,
                 newBillingAddress: false,
@@ -30,11 +34,18 @@ export default {
                 ship_to_a_different_address: false,
             },
             fixedrate: {
-                price: null,
+                price: 0,
+                total:0,
             },
+            totalFlatRateValue: 0,
+            serviceAvailable: true,
             states: {
-                billing: {},
-                shipping: {},
+                billing: {
+                    zip: '' ,
+                },
+                shipping: {
+                    zip: '' ,
+                },
             },
             placingOrder: false,
             errors: new Errors(),
@@ -112,7 +123,7 @@ export default {
             } else {
                 this.zipExists(newZip);
             }
-            console.log("billing zip"+ this.form.billing.zip);
+           // console.log("billing zip"+ this.form.billing.zip);
             if (newZip) {
                 this.addTaxes();
             }
@@ -124,10 +135,13 @@ export default {
             } else {
                 this.zipExists(newZip);
             }
-            console.log("shipping zip"+ this.form.shipping.zip);
+           // console.log("shipping zip"+ this.form.shipping.zip);
             if (newZip) {
                 this.addTaxes();
             }
+        },
+        "newzip": function(newZip){
+            this.zipExists(newZip);
         },
 
         "form.billing.state": function (newState) {
@@ -185,8 +199,10 @@ export default {
 
             if (store.state.cart.shippingMethodName) {
                 this.changeShippingMethod(store.state.cart.shippingMethodName);
+                this.updateTotalFlatRate();
             } else {
                 this.updateShippingMethod(this.firstShippingMethod);
+                this.updateTotalFlatRate();
             }
 
             if (window.Stripe) {
@@ -199,59 +215,138 @@ export default {
 
     methods: {
 
-getFixedRate(price) {
-         console.log("getFixedRate", price);
-         $.ajax({
-            method:"GET",
-            url:route("admin.fixedrates.getfixedrates", { price: price }),
-            success: (data) => {
-                console.log("Success:", data);
-            },
-            error: function(error) {
-                            console.error(error);
-                        }
-         });
-},
-zipExists(newZip) {
-    $.ajax({
-        method: "GET",
-        url: route("admin.fixedrates.getpincode"),
-        data: '',
-    })
-    .then(response => {
-        console.log('response.data', response);
-        if (response && typeof response === 'object') {
-            // Initialize a flag to check if newZip was found
-            let zipFound = false;
+        getFixedRate(price) {
+            $.ajax({
+                method: "GET",
+                url: route("admin.fixedrates.getfixedrates", { price: price }),
+                success: (data) => {
+                    this.$nextTick(() => {
+                    if (price === 0) {
+                        document.getElementById('pincode_not_servicable').style.display = 'block';
+                        this.serviceAvailable= false;
+                        const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                        let newTotalAmount;
+                        if ($.isEmptyObject(this.cart.coupon)) {
 
+                            newTotalAmount = cartTotalAmount  
+                            // console.log('inside if:',newTotalAmount);
+                        } else {
+                            newTotalAmount = cartTotalAmount - parseFloat(this.cart.coupon.value.amount);
+                        }
+
+                        // console.log('newTotalAmount', newTotalAmount);
+                        const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                        
+                        this.fixedrate.total = formattedNewTotal;
+                        // Update the elements in the DOM
+                        document.getElementById('price_flat_rate').innerText = 'MYR 0.00';
+                        document.getElementById('total_flat_rate').innerText = this.fixedrate.total;
+                        // console.log('Updated total_flat_rate IF CONDITION: ' + this.fixedrate.total);
+                        this.updateTotalFlatRate();
+                    } else {
+                        document.getElementById('pincode_not_servicable').style.display = 'none';
+                        this.serviceAvailable= true;
+                        const formattedPrice = 'MYR ' + parseFloat(price).toFixed(2);
+                        const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                        let newTotalAmount;
+
+                        if($.isEmptyObject(this.cart.coupon)) {
+                            newTotalAmount  =   cartTotalAmount + parseFloat(price);
+                        } else {
+                            // Apply coupon discount if cartCouponAmount is defined
+                            newTotalAmount  =  ( cartTotalAmount + parseFloat(price)) - parseFloat(this.cart.coupon.value.amount);
+                            // console.log('inside else coupon exists:',newTotalAmount);
+                        }
+
+                        // console.log('newTotalAmount', newTotalAmount);
+                        const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                        this.fixedrate.price =formattedPrice;
+                        this.fixedrate.total=formattedNewTotal ;
+                        document.getElementById('price_flat_rate').innerText = this.fixedrate.price;
+                        document.getElementById('total_flat_rate').innerText = this.fixedrate.total;
+                        // console.log('Updated total_flat_rate FROM ELSE: ' +parseFloat(price)+'---' +parseFloat(this.cart.subTotal.amount)+'----'+ this.fixedrate.total);
+                        this.updateTotalFlatRate();
+                    }
+                });
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        }
+        ,
+        
+
+        zipExists(newZip) {
+            this.$nextTick(() => {
+            $.ajax({
+                method: "GET",
+                url: route("admin.fixedrates.getpincode"),
+                data: '',
+            })
+            .then(response => {
+           
+          if (response && typeof response === 'object') {
+            let zipFound = false;
             // Iterate through the keys of the response object
             for (const key in response) {
                 if (key == newZip) {
-                    // The newZip value exists in the response object
-                    console.log(`Value for ${newZip} is ${response[key]}`);
-                    
                     const price = response[key];
-                    // document.getElementById('flat_rate_cost').value=price;
-                    document.getElementsByName('cost_flate_rate').value = price;
-                    this.fixedrate.price = price; 
-                    console.log("ssfsaf", this.fixedrate.price);
-                    this.getFixedRate(price);
+                    const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                    document.getElementById('pincode_not_servicable').style.display = 'none';
+                    this.serviceAvailable= true;
+                    let newTotalAmount;
 
-                    // Set the flag to true since newZip was found
-                    zipFound = true;
-
-                    // Exit the loop since you found the value
+                    if($.isEmptyObject(this.cart.coupon)) {
+                        newTotalAmount  =   cartTotalAmount + parseFloat(price);
+                    } else {
+                        // Apply coupon discount if cartCouponAmount is defined
+                        newTotalAmount  =  ( cartTotalAmount + parseFloat(price)) - parseFloat(this.cart.coupon.value.amount);
+                        // console.log('inside else coupon exists:',newTotalAmount);
+                    }
+                    const formattedPrice = 'MYR ' + parseFloat(price).toFixed(2);
+                    const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                    this.fixedrate.price =formattedPrice;
+                    this.fixedrate.total=formattedNewTotal ;
+                    // console.log('Updated total_flat_rate FROM ELSE IN ZIP EXISTS: ' +parseFloat(price)+'---' +parseFloat(this.cart.subTotal.amount)+'$----'+ this.fixedrate.total);
+                    this.getFixedRate(price);                    
+                    zipFound = true;                
                     break;
                 }
+                this.updateTotalFlatRate();
+                
             }
 
             // If newZip was not found, set this.fixedrate.price to 0
             if (!zipFound) {
-                this.fixedrate.price = 0;
-                console.log(`Value for ${newZip} was not found. Setting price to 0.`);
+                this.fixedrate.price = 'MYR'+' '+ 0.00;
+                document.getElementById('pincode_not_servicable').style.display = 'block';
+                this.serviceAvailable= false;
+                const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                let newTotalAmount;
+                       // console.log('if CART COUP : ' + this.cart.coupon + ' COUP AMT : ' + this.cart.coupon.value.amount);
+
+                        if ($.isEmptyObject(this.cart.coupon)) {
+                            // Apply coupon discount if cartCouponAmount is defined
+                            newTotalAmount = cartTotalAmount  
+                            // console.log('inside if:',newTotalAmount);
+                        } else {
+                            newTotalAmount = cartTotalAmount - parseFloat(this.cart.coupon.value.amount);
+                        }
+
+
+                // console.log('newTotalAmount-from !zipfound', newTotalAmount);
+                const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                this.fixedrate.total = formattedNewTotal;
+                // console.log(`Value for ${newZip} was not found. Setting price to 0.`);
+                // console.log('!ZIPFOUND',this.fixedrate.total);
                 this.getFixedRate(0);
+                this.updateTotalFlatRate();
             }
-            //document.getElementById('priceValue').innerText = price;
+
+            document.getElementById('price_flat_rate').innerText = this.fixedrate.price;
+            document.getElementById('total_flat_rate').innerText = this.fixedrate.total;
+           // console.log('test',document.getElementById('total_flat_rate').innerText);
         } else {
             console.log('Invalid response or missing data in the response.');
         }
@@ -259,13 +354,23 @@ zipExists(newZip) {
     .catch(error => {
         console.error(error);
     });
-    console.log('Common Method Called for checking whether shipping exists or not ' + newZip);
-},
-
-
-
-        
-        addNewBillingAddress() {
+});
+} ,
+    updateTotalFlatRate() {
+       // console.log("HI FROM updateTotalFlatRate");
+        const totalFlatRateElement = document.getElementById('total_flat_rate');
+        this.totalFlatRateValue = this.fixedrate.total;
+        this.$nextTick(() => {
+        if (totalFlatRateElement) {
+            totalFlatRateElement.innerText =  this.totalFlatRateValue;
+            // this.getFixedRate(price);
+           // console.log('Updated total_flat_rate: ' + totalFlatRateElement.innerText);
+        } else {
+           // console.error("Element with ID 'total_flat_rate' not found.");
+        }
+    });
+    },
+  addNewBillingAddress() {
             this.resetAddressErrors("billing");
 
             this.form.billing = {};
@@ -384,6 +489,7 @@ zipExists(newZip) {
 
         changeShippingMethod(shippingMethodName) {
             this.$set(this.form, "shipping_method", shippingMethodName);
+            //this.updateTotalFlatRate();
             
         },
 

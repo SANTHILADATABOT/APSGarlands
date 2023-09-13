@@ -15,7 +15,8 @@ class Method
     {
         $this->name = $name;
         $this->label = $label;
-        $this->cost = Money::inDefaultCurrency($cost);
+       $this->cost = Money::inDefaultCurrency($cost);
+       //$this->label = $cost;
     }
 
     public function available()

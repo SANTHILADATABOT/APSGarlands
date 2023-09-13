@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Modules\Support\Search\Searchable;
 use Modules\Admin\Ui\Facades\TabManager;
 use Modules\Fixedrate\Entities\Fixedrate;
-
+use Modules\Shipping\Providers\ShippingServiceProvider;
+use Illuminate\Support\Facades\Config; 
+use Illuminate\Support\Facades\Session;
 
 trait HasCrudActions
 {
@@ -50,20 +52,30 @@ trait HasCrudActions
         
         //($pincodeData);
     }
-    public function getfixedrates(Request $request)
-{
-    $newCost = $request->input('flat_rate_cost');
-
-    // Update the configuration
-    config(['shipping.flat_rate_cost' => $newCost]);
+//     public function getfixedrates(Request $request)
+// {
+//     $newPrice = $request->input('price');
     
-    // You can store or use the updated cost as needed
+//     // You can store or use the price as needed
     
-    return response()->json(['message' => 'Shipping cost updated successfully']);
-}
+//     return response()->json(['price' => $newPrice]);
+// }
+ // Adjust the namespace as needed
 
+ // Import the Config facade
+ 
 
-    
+ public function getfixedrates(Request $request)
+ {
+     $dynamicFlatRateCost = $request->input('price');
+ 
+     // Store the dynamic flat rate cost in the session
+     Session::put('dynamic_flat_rate_cost', $dynamicFlatRateCost);
+ 
+     return response()->json(['flat_rate_cost' => $dynamicFlatRateCost]);
+ }
+ 
+
     /**
      * Show the form for creating a new resource.
      *
