@@ -38,5 +38,7 @@
     "Sms": true,
     "RewardpointsGift": true,
     "Rewardpoints": true,
-    "Testimonial": true
+    "Testimonial": true,
+    "Fixedrate": true,
+    "Pickupstore": true
 }

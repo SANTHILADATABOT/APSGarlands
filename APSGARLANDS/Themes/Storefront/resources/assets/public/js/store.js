@@ -31,7 +31,6 @@ export default {
     },
 
     wishlistCount() {
-        console.log('this.state.wishlist.length', this.state.wishlist.length);
         return this.state.wishlist.length;
     },
 
@@ -83,7 +82,6 @@ export default {
                                                            
         const newWishlist = this.state.wishlist.filter(item => !productsDataId.includes(item));        
         this.state.wishlist = newWishlist;
-        console.log('newWishlist', newWishlist);
         
         this.wishlistCount();        
       
@@ -97,11 +95,7 @@ export default {
       
 
     removeFromWishlist(productId, data) {
-        
         var proData = data.reason;       
-
-        console.log('proData',proData);
-
         this.state.wishlist.splice(this.state.wishlist.indexOf(productId), 1);
 
         $.ajax({
