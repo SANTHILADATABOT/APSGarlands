@@ -92,7 +92,6 @@ class CheckoutController extends Controller
                 'message' => $e->getMessage(),
             ], 403);
         }
-
         return response()->json($response);
     }
     public function setDeliveryDate(Request $request)

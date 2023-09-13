@@ -49,7 +49,6 @@ export default {
     },
 
     methods: {
-
         selectAllProducts() {
             // Toggle the selected state of all products based on selectAllChecked
             this.selectedProducts = this.selectAllChecked ? this.products.data.map(product => product.id) : [];

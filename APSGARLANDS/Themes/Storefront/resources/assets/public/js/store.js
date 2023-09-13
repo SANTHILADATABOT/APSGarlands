@@ -93,13 +93,6 @@ export default {
         });
     },
 
-
-
-
-   
-
-
-
     inCompareList(productId) {
         return this.state.compareList.includes(productId);
     },

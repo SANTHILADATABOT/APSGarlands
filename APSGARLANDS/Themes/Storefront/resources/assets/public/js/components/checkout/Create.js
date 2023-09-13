@@ -21,17 +21,31 @@ export default {
             form: {
                 customer_email: this.customerEmail,
                 customer_phone: this.customerPhone,
-                billing: {},
-                shipping: {},
+                billing: {
+                    zip: '' ,
+                },
+                shipping: {
+                    zip: '' 
+                },
                 billingAddressId: null,
                 shippingAddressId: null,
                 newBillingAddress: false,
                 newShippingAddress: false,
                 ship_to_a_different_address: false,
             },
+            fixedrate: {
+                price: 0,
+                total:0,
+            },
+            totalFlatRateValue: 0,
+            serviceAvailable: true,
             states: {
-                billing: {},
-                shipping: {},
+                billing: {
+                    zip: '' ,
+                },
+                shipping: {
+                    zip: '' ,
+                },
             },
             placingOrder: false,
             errors: new Errors(),
@@ -103,15 +117,30 @@ export default {
         },
 
         "form.billing.zip": function (newZip) {
+            if(this.form.newBillingAddress == true) {
+                this.zipExists(newZip);
+            } else {
+                this.zipExists(newZip);
+            }
+           // console.log("billing zip"+ this.form.billing.zip);
             if (newZip) {
                 this.addTaxes();
             }
         },
 
         "form.shipping.zip": function (newZip) {
+            if(this.form.newShippingAddress == true) {
+                this.zipExists(newZip);
+            } else {
+                this.zipExists(newZip);
+            }
+           // console.log("shipping zip"+ this.form.shipping.zip);
             if (newZip) {
                 this.addTaxes();
             }
+        },
+        "newzip": function(newZip){
+            this.zipExists(newZip);
         },
 
         "form.billing.state": function (newState) {
@@ -169,8 +198,10 @@ export default {
 
             if (store.state.cart.shippingMethodName) {
                 this.changeShippingMethod(store.state.cart.shippingMethodName);
+                this.updateTotalFlatRate();
             } else {
                 this.updateShippingMethod(this.firstShippingMethod);
+                this.updateTotalFlatRate();
             }
 
             if (window.Stripe) {
@@ -182,7 +213,163 @@ export default {
     },
 
     methods: {
-        addNewBillingAddress() {
+
+        getFixedRate(price) {
+            $.ajax({
+                method: "GET",
+                url: route("admin.fixedrates.getfixedrates", { price: price }),
+                success: (data) => {
+                    this.$nextTick(() => {
+                    if (price === 0) {
+                        document.getElementById('pincode_not_servicable').style.display = 'block';
+                        this.serviceAvailable= false;
+                        const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                        let newTotalAmount;
+                        if ($.isEmptyObject(this.cart.coupon)) {
+
+                            newTotalAmount = cartTotalAmount  
+                            // console.log('inside if:',newTotalAmount);
+                        } else {
+                            newTotalAmount = cartTotalAmount - parseFloat(this.cart.coupon.value.amount);
+                        }
+
+                        // console.log('newTotalAmount', newTotalAmount);
+                        const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                        
+                        this.fixedrate.total = formattedNewTotal;
+                        // Update the elements in the DOM
+                        document.getElementById('price_flat_rate').innerText = 'MYR 0.00';
+                        document.getElementById('total_flat_rate').innerText = this.fixedrate.total;
+                        // console.log('Updated total_flat_rate IF CONDITION: ' + this.fixedrate.total);
+                        this.updateTotalFlatRate();
+                    } else {
+                        document.getElementById('pincode_not_servicable').style.display = 'none';
+                        this.serviceAvailable= true;
+                        const formattedPrice = 'MYR ' + parseFloat(price).toFixed(2);
+                        const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                        let newTotalAmount;
+
+                        if($.isEmptyObject(this.cart.coupon)) {
+                            newTotalAmount  =   cartTotalAmount + parseFloat(price);
+                        } else {
+                            // Apply coupon discount if cartCouponAmount is defined
+                            newTotalAmount  =  ( cartTotalAmount + parseFloat(price)) - parseFloat(this.cart.coupon.value.amount);
+                            // console.log('inside else coupon exists:',newTotalAmount);
+                        }
+
+                        // console.log('newTotalAmount', newTotalAmount);
+                        const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                        this.fixedrate.price =formattedPrice;
+                        this.fixedrate.total=formattedNewTotal ;
+                        document.getElementById('price_flat_rate').innerText = this.fixedrate.price;
+                        document.getElementById('total_flat_rate').innerText = this.fixedrate.total;
+                        // console.log('Updated total_flat_rate FROM ELSE: ' +parseFloat(price)+'---' +parseFloat(this.cart.subTotal.amount)+'----'+ this.fixedrate.total);
+                        this.updateTotalFlatRate();
+                    }
+                });
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        }
+        ,
+        
+
+        zipExists(newZip) {
+            this.$nextTick(() => {
+            $.ajax({
+                method: "GET",
+                url: route("admin.fixedrates.getpincode"),
+                data: '',
+            })
+            .then(response => {
+           
+          if (response && typeof response === 'object') {
+            let zipFound = false;
+            // Iterate through the keys of the response object
+            for (const key in response) {
+                if (key == newZip) {
+                    const price = response[key];
+                    const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                    document.getElementById('pincode_not_servicable').style.display = 'none';
+                    this.serviceAvailable= true;
+                    let newTotalAmount;
+
+                    if($.isEmptyObject(this.cart.coupon)) {
+                        newTotalAmount  =   cartTotalAmount + parseFloat(price);
+                    } else {
+                        // Apply coupon discount if cartCouponAmount is defined
+                        newTotalAmount  =  ( cartTotalAmount + parseFloat(price)) - parseFloat(this.cart.coupon.value.amount);
+                        // console.log('inside else coupon exists:',newTotalAmount);
+                    }
+                    const formattedPrice = 'MYR ' + parseFloat(price).toFixed(2);
+                    const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                    this.fixedrate.price =formattedPrice;
+                    this.fixedrate.total=formattedNewTotal ;
+                    // console.log('Updated total_flat_rate FROM ELSE IN ZIP EXISTS: ' +parseFloat(price)+'---' +parseFloat(this.cart.subTotal.amount)+'$----'+ this.fixedrate.total);
+                    this.getFixedRate(price);                    
+                    zipFound = true;                
+                    break;
+                }
+                this.updateTotalFlatRate();
+                
+            }
+
+            // If newZip was not found, set this.fixedrate.price to 0
+            if (!zipFound) {
+                this.fixedrate.price = 'MYR'+' '+ 0.00;
+                document.getElementById('pincode_not_servicable').style.display = 'block';
+                this.serviceAvailable= false;
+                const cartTotalAmount = parseFloat(this.cart.subTotal.amount);
+                let newTotalAmount;
+                       // console.log('if CART COUP : ' + this.cart.coupon + ' COUP AMT : ' + this.cart.coupon.value.amount);
+
+                        if ($.isEmptyObject(this.cart.coupon)) {
+                            // Apply coupon discount if cartCouponAmount is defined
+                            newTotalAmount = cartTotalAmount  
+                            // console.log('inside if:',newTotalAmount);
+                        } else {
+                            newTotalAmount = cartTotalAmount - parseFloat(this.cart.coupon.value.amount);
+                        }
+
+
+                // console.log('newTotalAmount-from !zipfound', newTotalAmount);
+                const formattedNewTotal = 'MYR ' + newTotalAmount.toFixed(2);
+                this.fixedrate.total = formattedNewTotal;
+                // console.log(`Value for ${newZip} was not found. Setting price to 0.`);
+                // console.log('!ZIPFOUND',this.fixedrate.total);
+                this.getFixedRate(0);
+                this.updateTotalFlatRate();
+            }
+
+            document.getElementById('price_flat_rate').innerText = this.fixedrate.price;
+            document.getElementById('total_flat_rate').innerText = this.fixedrate.total;
+           // console.log('test',document.getElementById('total_flat_rate').innerText);
+        } else {
+            console.log('Invalid response or missing data in the response.');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+});
+} ,
+    updateTotalFlatRate() {
+       // console.log("HI FROM updateTotalFlatRate");
+        const totalFlatRateElement = document.getElementById('total_flat_rate');
+        this.totalFlatRateValue = this.fixedrate.total;
+        this.$nextTick(() => {
+        if (totalFlatRateElement) {
+            totalFlatRateElement.innerText =  this.totalFlatRateValue;
+            // this.getFixedRate(price);
+           // console.log('Updated total_flat_rate: ' + totalFlatRateElement.innerText);
+        } else {
+           // console.error("Element with ID 'total_flat_rate' not found.");
+        }
+    });
+    },
+  addNewBillingAddress() {
             this.resetAddressErrors("billing");
 
             this.form.billing = {};
@@ -326,7 +513,31 @@ export default {
             if (!this.form.terms_and_conditions || this.placingOrder) {
                 return;
             }
+            var deliverydate = document.getElementsByName('delivery_date[]');
+            var productId = document.getElementsByName('productId[]');
 
+            var del_len = deliverydate.length;
+            var len = productId.length;
+/*********************************delivery date validation commanded**************************** */
+//             console.log('len',len);
+//             console.log('del_len',del_len);
+//             for (let i = 0; i < del_len; i++) {
+                 
+//                 const deliveryDateValue = deliverydate[i].value;
+               
+//             if(!deliveryDateValue){
+// var del_id="delivery_date"+productId[i].value;
+// console.log('del_id',del_id);
+//                 var inputElement = document.getElementById(del_id);
+    
+//                 // Set focus on the input element
+//                 inputElement.focus();
+//                 return false;
+//             }
+               
+//             }
+            
+/*********************************************************************** */
             this.placingOrder = true;
 
             $.ajax({
@@ -341,11 +552,10 @@ export default {
                 .then((response) => {
                     //  setdeliverydate(response.orderId);
                       /*********************delivery date sending to backend funtion*************************************** */
-console.log('fsafs');
-var productId = document.getElementsByName('productId[]');
-var deliverydate = document.getElementsByName('delivery_date[]');
+//console.log('fsafs');
 
-var len = productId.length;
+
+
 var productDeliveryDate = [];
 
 for (let i = 0; i < len; i++) {
@@ -361,19 +571,19 @@ for (let i = 0; i < len; i++) {
     productDeliveryDate.push(newObj);
 }
 
-console.log(productDeliveryDate);
-
-$.ajax({
-    method: "POST",
-    url: route("checkout.setdeliverydate"),
-    data: {productDeliveryDate },
-})
-.then(responsed => {
-    // console.log(responsed.data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+//console.log(productDeliveryDate);
+//multipe date updation cammded
+// $.ajax({
+//     method: "POST",
+//     url: route("checkout.setdeliverydate"),
+//     data: {productDeliveryDate },
+// })
+// .then(responsed => {
+//     // console.log(responsed.data);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
 /**************************************************************************************************** */
                     if (response.redirectUrl) {
                         window.location.href = response.redirectUrl;
