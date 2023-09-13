@@ -36,12 +36,7 @@
     "Import": true,
     "Address": true,
     "Sms": true,
-<<<<<<< HEAD
     "RewardpointsGift": true,
     "Rewardpoints": true,
     "Testimonial": true
-=======
-    "Pickupstore": true,
-    "Fixedrate": true
->>>>>>> origin/shipping_methods
 }

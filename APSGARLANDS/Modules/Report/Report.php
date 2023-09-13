@@ -43,13 +43,8 @@ abstract class Report
         foreach ($this->filters($request) as $name => $value) {
             $this->{$name}($value);
         }
-<<<<<<< HEAD
        
         return $this->query;        
-=======
-
-        return $this->query;
->>>>>>> origin/shipping_methods
     }
 
     private function filters($request)
