@@ -101,5 +101,6 @@ return [
         'new_password' => 'New Password',
         'confirm_password' => 'Confirm Password',
         'save_changes' => 'SAVE CHANGES',
+        'image_url' => 'Upload Image',
     ],
 ];
