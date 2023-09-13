@@ -46,6 +46,7 @@ class AccountProfileController
     }else{
        $image_url = '';
     }
+    
     auth()->user()->update([$request->all(),'image_url'=>$image_url]);
 
     return back()->with('success', trans('account::messages.profile_updated'));

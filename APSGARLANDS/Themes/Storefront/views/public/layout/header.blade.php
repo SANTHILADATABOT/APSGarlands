@@ -177,7 +177,17 @@
                         <div class="header-contact header">
                             <a href="{{ route('account.dashboard.index') }}" class="menu-link">
                                 <div class="icon-wrap">
-                                    <i class="las la-user"></i>
+                                @switch(true)
+                  @case(auth()->user()->sso_google == '1' || auth()->user()->sso_fb == '1')
+                          <img src="{{ auth()->user()->sso_avatar }}" alt="User Profile Image" class="profile-image">
+                  @break
+
+                  @case(auth()->user()->sso_fb == '' && auth()->user()->sso_google == '' && (!empty(auth()->user()->image_url)))
+                          <img src="{{ auth()->user()->image_url }}" alt="User Profile Image" class="profile-image">
+                  @break
+
+                  @default
+                          <i class="las la-user"></i>
                                 </div>                                
                                 <span>{{ trans('storefront::layout.account') }}</span>
                             </a>
