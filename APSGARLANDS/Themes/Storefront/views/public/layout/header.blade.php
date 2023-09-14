@@ -177,7 +177,7 @@
                         <div class="header-contact header">
                             <a href="{{ route('account.dashboard.index') }}" class="menu-link">
                                 <div class="icon-wrap">
-                                    <i class="las la-user"></i>
+                                    <i class="las la-user"></i> 
                                 </div>                                
                                 <span>{{ trans('storefront::layout.account') }}</span>
                             </a>
