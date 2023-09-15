@@ -38,6 +38,7 @@ class User extends EloquentUser implements AuthenticatableContract
         'sso_avatar',
         'is_sso_google',
         'is_sso_fb',
+        'image_url'
     ];
 
     /**
