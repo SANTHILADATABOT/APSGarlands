@@ -36,7 +36,7 @@ class SettingDatabaseSeeder extends Seeder
             'local_pickup_cost' => 0,
             'flat_rate_cost' => 0,
             'translatable' => [
-                'store_name' => 'FleetCart',
+                'store_name' => 'APS Garlands',
                 'free_shipping_label' => 'Free Shipping',
                 'local_pickup_label' => 'Local Pickup',
                 'flat_rate_label' => 'Flat Rate',

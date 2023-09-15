@@ -203,7 +203,7 @@ class Cart extends DarryldecodeCart implements JsonSerializable
             new CartCondition([
                 'name' => $shippingMethod->label,
                 'type' => 'shipping_method',
-                'target' => 'total',
+                'target' => '',
                 'value' => "+{$shippingMethod->cost->amount()}",
                 'order' => 1,
                 'attributes' => [

@@ -45,7 +45,7 @@
                                 <!-- <input type="hidden" id="hidRemProdID" name="hidRemProdID" value="product.pivot.id"> -->
 
                                 <td> 
-                                    <input type="checkbox" :value="product.id" v-model='selectedProducts'> 
+                                    <input type="checkbox" :value="product.id" v-model='selectedProducts'  @change="checkSelectAll"> 
                                 </td>
 
                                 <td>
