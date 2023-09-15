@@ -106,6 +106,17 @@
                     <div class="col-md-9">
                             <div class="form-group">
                                 <label for="confirm-password">
+                                    {{ trans('storefront::account.profile.profile_image') }}
+                                </label>
+                                @if(auth()->user()->image_url)
+                                    <img src="{{ auth()->user()->image_url }}" alt="User Profile Image"
+                                    width="100px" height="100px">
+                                @endif
+                            </div>
+                        </div>
+                    <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="confirm-password">
                                     {{ trans('storefront::account.profile.image_url') }}
                                 </label>
 

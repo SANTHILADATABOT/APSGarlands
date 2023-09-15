@@ -179,12 +179,12 @@
                                         @switch(true)
                                             @case(auth()->user()->sso_google == '1' || auth()->user()->sso_fb == '1')
                                                 <img src="{{ auth()->user()->sso_avatar }}" alt="User Profile Image"
-                                                    class="profile-image">
+                                                    class="profile-image" width="50px" height="50px">
                                             @break
 
                                             @case(auth()->user()->sso_fb == '' && auth()->user()->sso_google == '' && !empty(auth()->user()->image_url))
                                                 <img src="{{ auth()->user()->image_url }}" alt="User Profile Image"
-                                                    class="profile-image">
+                                                    class="profile-image" width="50px" height="50px">
                                             @break
 
                                             @default
