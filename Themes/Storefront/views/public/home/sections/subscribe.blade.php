@@ -60,4 +60,3 @@
         </section>
     </newsletter-subscription>
 @endif
-

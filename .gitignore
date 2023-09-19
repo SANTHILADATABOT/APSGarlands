@@ -1,17 +1,22 @@
-.idea/
-.phpintel/
-*.sublime-project
-.DS_Store
 
-node_modules/
-/vendor/
-
-/storage/logs/*
-public/phplog
-
-/.meta
-mix-manifest.json
 npm-debug.log
 yarn-error.log
-*.map
 
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+# public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+# public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache

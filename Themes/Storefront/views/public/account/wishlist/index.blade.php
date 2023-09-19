@@ -153,29 +153,4 @@
             </div>
         </div>
     </my-wishlist>
-
-
-    
-
-    
-    <!-- <script>
-        function getData(id) {
-
-            console.log('pro' + id);
-           
-            if(document.getElementById('get').style.display = 'none') {
-                document.getElementById('get').style.display = 'block';
-            }
-            else {
-                document.getElementById('get').style.display = 'none';
-            }
-        }
-
-        function closeTab() {            
-            document.getElementById('get').style.display = 'none';
-        }     
-        
-        
-    </script> -->
-
 @endsection
