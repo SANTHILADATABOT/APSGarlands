@@ -3,7 +3,7 @@
 *.sublime-project
 .DS_Store
 
-/storage/logs/*
+storage/logs/*
 public/phplog
 .env
 #to avoid builded js and css files
