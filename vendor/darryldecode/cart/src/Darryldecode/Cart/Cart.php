@@ -87,7 +87,7 @@ class Cart
         $this->sessionKeyCartItems = $this->sessionKey . '_cart_items';
         $this->sessionKeyCartConditions = $this->sessionKey . '_cart_conditions';
         $this->config = $config;
-        $this->currentItemId = null;
+        $this->currentItem = null;
         $this->fireEvent('created');
     }
 

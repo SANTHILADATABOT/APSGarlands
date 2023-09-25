@@ -1,4 +1,5 @@
 import store from '../store';
+// import { zipExists } from '../components/checkout/Create';
 
 export default {
     data() {

@@ -103,6 +103,8 @@ return array(
     'Modules\\Slider\\' => array($baseDir . '/Modules/Slider'),
     'Modules\\Shipping\\' => array($baseDir . '/Modules/Shipping'),
     'Modules\\Setting\\' => array($baseDir . '/Modules/Setting'),
+    'Modules\\Rewardpoints\\' => array($baseDir . '/Modules/Rewardpoints'),
+    'Modules\\RewardpointsGift\\' => array($baseDir . '/Modules/RewardpointsGift'),
     'Modules\\Review\\' => array($baseDir . '/Modules/Review'),
     'Modules\\Report\\' => array($baseDir . '/Modules/Report'),
     'Modules\\Product\\' => array($baseDir . '/Modules/Product'),

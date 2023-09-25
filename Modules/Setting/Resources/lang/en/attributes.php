@@ -90,8 +90,12 @@ return [
     'razerpay_enabled' => 'Status',
     'razerpay_label' => 'Label',
     'razerpay_description' => 'Description',
+    'razerpay_test_mode' => 'Sandbox',
     'razerpay_key_id' => 'Key Id',
     'razerpay_key_secret' => 'Key Secret',
+    'razerpay_url'=> 'URL',
+    'razerpay_merchant_id'=> 'Merchant Id',
+    'razerpay_instructions'=> 'Instructions',
 
     'cod_enabled' => 'Status',
     'translatable.cod_label' => 'Label',
@@ -117,5 +121,5 @@ return [
 
     //MY TESTIMONIAL
     'my_testimonial' => 'My Testimonial',
-    
+
 ];

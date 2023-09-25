@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
+class ComposerStaticInit95bb1f1eaeab06176158b2a344a9d054
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -198,6 +198,8 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
             'Modules\\Slider\\' => 15,
             'Modules\\Shipping\\' => 17,
             'Modules\\Setting\\' => 16,
+            'Modules\\Rewardpoints\\' => 21,
+            'Modules\\RewardpointsGift\\' => 25,
             'Modules\\Review\\' => 15,
             'Modules\\Report\\' => 15,
             'Modules\\Product\\' => 16,
@@ -731,6 +733,14 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Modules\\Setting\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Modules/Setting',
+        ),
+        'Modules\\Rewardpoints\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Rewardpoints',
+        ),
+        'Modules\\RewardpointsGift\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/RewardpointsGift',
         ),
         'Modules\\Review\\' => 
         array (
@@ -5644,7 +5654,6 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Laravel\\Socialite\\Two\\GitlabProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/GitlabProvider.php',
         'Laravel\\Socialite\\Two\\GoogleProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/GoogleProvider.php',
         'Laravel\\Socialite\\Two\\InvalidStateException' => __DIR__ . '/..' . '/laravel/socialite/src/Two/InvalidStateException.php',
-        'Laravel\\Socialite\\Two\\LinkedInOpenIdProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/LinkedInOpenIdProvider.php',
         'Laravel\\Socialite\\Two\\LinkedInProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/LinkedInProvider.php',
         'Laravel\\Socialite\\Two\\ProviderInterface' => __DIR__ . '/..' . '/laravel/socialite/src/Two/ProviderInterface.php',
         'Laravel\\Socialite\\Two\\SlackProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/SlackProvider.php',
@@ -6604,6 +6613,7 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Modules\\Currency\\Services\\CurrencyRateExchanger' => __DIR__ . '/../..' . '/Modules/Currency/Services/CurrencyRateExchanger.php',
         'Modules\\Currency\\Sidebar\\SidebarExtender' => __DIR__ . '/../..' . '/Modules/Currency/Sidebar/SidebarExtender.php',
         'Modules\\Fixedrate\\Admin\\FixedrateTabs' => __DIR__ . '/../..' . '/Modules/Fixedrate/Admin/FixedrateTabs.php',
+        'Modules\\Fixedrate\\Database\\Seeders\\FixedrateDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Fixedrate/Database/Seeders/FixedrateDatabaseSeeder.php',
         'Modules\\Fixedrate\\Entities\\Fixedrate' => __DIR__ . '/../..' . '/Modules/Fixedrate/Entities/Fixedrate.php',
         'Modules\\Fixedrate\\Entities\\FixedrateTranslation' => __DIR__ . '/../..' . '/Modules/Fixedrate/Entities/FixedrateTranslation.php',
         'Modules\\Fixedrate\\Http\\Controllers\\Admin\\FixedrateController' => __DIR__ . '/../..' . '/Modules/Fixedrate/Http/Controllers/Admin/FixedrateController.php',
@@ -6720,6 +6730,7 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Modules\\Payment\\Gateways\\PayPal' => __DIR__ . '/../..' . '/Modules/Payment/Gateways/PayPal.php',
         'Modules\\Payment\\Gateways\\Paystack' => __DIR__ . '/../..' . '/Modules/Payment/Gateways/Paystack.php',
         'Modules\\Payment\\Gateways\\Paytm' => __DIR__ . '/../..' . '/Modules/Payment/Gateways/Paytm.php',
+        'Modules\\Payment\\Gateways\\Razerpay' => __DIR__ . '/../..' . '/Modules/Payment/Gateways/Razerpay.php',
         'Modules\\Payment\\Gateways\\Razorpay' => __DIR__ . '/../..' . '/Modules/Payment/Gateways/Razorpay.php',
         'Modules\\Payment\\Gateways\\Stripe' => __DIR__ . '/../..' . '/Modules/Payment/Gateways/Stripe.php',
         'Modules\\Payment\\HasTransactionReference' => __DIR__ . '/../..' . '/Modules/Payment/HasTransactionReference.php',
@@ -6732,10 +6743,12 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Modules\\Payment\\Responses\\PayPalResponse' => __DIR__ . '/../..' . '/Modules/Payment/Responses/PayPalResponse.php',
         'Modules\\Payment\\Responses\\PaystackResponse' => __DIR__ . '/../..' . '/Modules/Payment/Responses/PaystackResponse.php',
         'Modules\\Payment\\Responses\\PaytmResponse' => __DIR__ . '/../..' . '/Modules/Payment/Responses/PaytmResponse.php',
+        'Modules\\Payment\\Responses\\RazerpayResponse' => __DIR__ . '/../..' . '/Modules/Payment/Responses/RazerpayResponse.php',
         'Modules\\Payment\\Responses\\RazorpayResponse' => __DIR__ . '/../..' . '/Modules/Payment/Responses/RazorpayResponse.php',
         'Modules\\Payment\\Responses\\StripeResponse' => __DIR__ . '/../..' . '/Modules/Payment/Responses/StripeResponse.php',
         'Modules\\Payment\\ShouldRedirect' => __DIR__ . '/../..' . '/Modules/Payment/ShouldRedirect.php',
         'Modules\\Pickupstore\\Admin\\PickupstoreTabs' => __DIR__ . '/../..' . '/Modules/Pickupstore/Admin/PickupstoreTabs.php',
+        'Modules\\Pickupstore\\Database\\Seeders\\PickupstoreDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Pickupstore/Database/Seeders/PickupstoreDatabaseSeeder.php',
         'Modules\\Pickupstore\\Entities\\Pickupstore' => __DIR__ . '/../..' . '/Modules/Pickupstore/Entities/Pickupstore.php',
         'Modules\\Pickupstore\\Entities\\PickupstoreTranslation' => __DIR__ . '/../..' . '/Modules/Pickupstore/Entities/PickupstoreTranslation.php',
         'Modules\\Pickupstore\\Http\\Controllers\\Admin\\PickupstoreController' => __DIR__ . '/../..' . '/Modules/Pickupstore/Http/Controllers/Admin/PickupstoreController.php',
@@ -6800,6 +6813,31 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Modules\\Review\\Http\\Requests\\UpdateReviewRequest' => __DIR__ . '/../..' . '/Modules/Review/Http/Requests/UpdateReviewRequest.php',
         'Modules\\Review\\Providers\\ReviewServiceProvider' => __DIR__ . '/../..' . '/Modules/Review/Providers/ReviewServiceProvider.php',
         'Modules\\Review\\Sidebar\\SidebarExtender' => __DIR__ . '/../..' . '/Modules/Review/Sidebar/SidebarExtender.php',
+        'Modules\\RewardpointsGift\\Admin\\CustomerRewardPointsTable' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Admin/CustomerRewardPointsTable.php',
+        'Modules\\RewardpointsGift\\Admin\\RewardpointsCustomerTable' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Admin/RewardpointsCustomerTable.php',
+        'Modules\\RewardpointsGift\\Admin\\RewardpointsGiftTable' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Admin/RewardpointsGiftTable.php',
+        'Modules\\RewardpointsGift\\Database\\Seeders\\RewardpointsGiftDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Database/Seeders/RewardpointsGiftDatabaseSeeder.php',
+        'Modules\\RewardpointsGift\\Entities\\CustomerRewardPoint' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Entities/CustomerRewardPoint.php',
+        'Modules\\RewardpointsGift\\Entities\\RewardpointsGift' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Entities/RewardpointsGift.php',
+        'Modules\\RewardpointsGift\\Http\\Controllers\\Admin\\CustomerRewardpointController' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Http/Controllers/Admin/CustomerRewardpointController.php',
+        'Modules\\RewardpointsGift\\Http\\Controllers\\Admin\\RewardpointCustomerController' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Http/Controllers/Admin/RewardpointCustomerController.php',
+        'Modules\\RewardpointsGift\\Http\\Controllers\\Admin\\RewardpointGiftController' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Http/Controllers/Admin/RewardpointGiftController.php',
+        'Modules\\RewardpointsGift\\Http\\Controllers\\CustomerRewardpointController' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Http/Controllers/CustomerRewardpointController.php',
+        'Modules\\RewardpointsGift\\Providers\\RewardpointsGiftServiceProvider' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Providers/RewardpointsGiftServiceProvider.php',
+        'Modules\\RewardpointsGift\\Sidebar\\SidebarExtender' => __DIR__ . '/../..' . '/Modules/RewardpointsGift/Sidebar/SidebarExtender.php',
+        'Modules\\Rewardpoints\\Admin\\RewardpointsTable' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Admin/RewardpointsTable.php',
+        'Modules\\Rewardpoints\\Admin\\RewardpointsTabs' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Admin/RewardpointsTabs.php',
+        'Modules\\Rewardpoints\\Checkers\\AlreadyApplied' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Checkers/AlreadyApplied.php',
+        'Modules\\Rewardpoints\\Database\\Seeders\\RewardpointsDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Database/Seeders/RewardpointsDatabaseSeeder.php',
+        'Modules\\Rewardpoints\\Entities\\Concerns\\RelationList' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Entities/Concerns/RelationList.php',
+        'Modules\\Rewardpoints\\Entities\\Concerns\\SyncRelations' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Entities/Concerns/SyncRelations.php',
+        'Modules\\Rewardpoints\\Entities\\Rewardpoints' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Entities/Rewardpoints.php',
+        'Modules\\Rewardpoints\\Entities\\RewardpointsTranslation' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Entities/RewardpointsTranslation.php',
+        'Modules\\Rewardpoints\\Http\\Controllers\\Admin\\RewardpointsController' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Http/Controllers/Admin/RewardpointsController.php',
+        'Modules\\Rewardpoints\\Http\\Controllers\\RewardpointsController' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Http/Controllers/RewardpointsController.php',
+        'Modules\\Rewardpoints\\Http\\Requests\\SaveRewardpointsRequest' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Http/Requests/SaveRewardpointsRequest.php',
+        'Modules\\Rewardpoints\\Providers\\RewardpointsServiceProvider' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Providers/RewardpointsServiceProvider.php',
+        'Modules\\Rewardpoints\\Sidebar\\SidebarExtender' => __DIR__ . '/../..' . '/Modules/Rewardpoints/Sidebar/SidebarExtender.php',
         'Modules\\Setting\\Admin\\SettingTabs' => __DIR__ . '/../..' . '/Modules/Setting/Admin/SettingTabs.php',
         'Modules\\Setting\\Database\\Seeders\\SettingDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Setting/Database/Seeders/SettingDatabaseSeeder.php',
         'Modules\\Setting\\Entities\\Setting' => __DIR__ . '/../..' . '/Modules/Setting/Entities/Setting.php',
@@ -8751,7 +8789,6 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
         'Razorpay\\Tests\\CoverageTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/CoverageTest.php',
         'Razorpay\\Tests\\CustomerTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/CustomerTest.php',
         'Razorpay\\Tests\\EmandateTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/EmandateTest.php',
-        'Razorpay\\Tests\\ExceptionTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/ExceptionTest.php',
         'Razorpay\\Tests\\FundTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/FundTest.php',
         'Razorpay\\Tests\\InvoiceTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/InvoiceTest.php',
         'Razorpay\\Tests\\ItemTest' => __DIR__ . '/..' . '/razorpay/razorpay/tests/ItemTest.php',
@@ -15005,10 +15042,10 @@ class ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit9b75fc24f711b9d32c7b9b6ed66ee27b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit95bb1f1eaeab06176158b2a344a9d054::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit95bb1f1eaeab06176158b2a344a9d054::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit95bb1f1eaeab06176158b2a344a9d054::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit95bb1f1eaeab06176158b2a344a9d054::$classMap;
 
         }, null, ClassLoader::class);
     }
