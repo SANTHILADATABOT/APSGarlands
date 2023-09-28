@@ -226,11 +226,7 @@
                                     <a href="#" class="menu-link" id="profile-dropdown" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
                                         <!-- Your image here -->
-<<<<<<< HEAD
                                         <img src="{{ auth()->user()->sso_avatar ?? auth()->user()->image_url ?? 'storage/profile/default.jpg' }}"
-=======
-                                        <img src="{{ auth()->user()->sso_avatar ?? auth()->user()->image_url }}"
->>>>>>> origin/staging
                                             alt="User Profile Image" class="profile-image" width="50px" height="50px">
                                         {{-- {{ trans('storefront::layout.account') }} --}}
                                         {{ auth()->user()->full_name }}

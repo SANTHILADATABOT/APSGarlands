@@ -50,11 +50,8 @@
     @if (setting('testimonial_slider_enabled'))
         <div id="testimonial_slide_div"></div>
     @endif
-<<<<<<< HEAD
     @if (setting('galleries_enabled'))
     <div id="galleries_slide_div">
     </div>
     @endif
-=======
->>>>>>> origin/staging
 @endsection
