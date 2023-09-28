@@ -29,10 +29,13 @@ return array(
     'AWS\\CRT\\NativeResource' => $vendorDir . '/aws/aws-crt-php/src/AWS/CRT/NativeResource.php',
     'AWS\\CRT\\OptionValue' => $vendorDir . '/aws/aws-crt-php/src/AWS/CRT/Options.php',
     'AWS\\CRT\\Options' => $vendorDir . '/aws/aws-crt-php/src/AWS/CRT/Options.php',
+<<<<<<< HEAD
     'Alaouy\\Youtube\\Facades\\Youtube' => $vendorDir . '/alaouy/youtube/src/Facades/Youtube.php',
     'Alaouy\\Youtube\\Rules\\ValidYoutubeVideo' => $vendorDir . '/alaouy/youtube/src/Rules/ValidYoutubeVideo.php',
     'Alaouy\\Youtube\\Youtube' => $vendorDir . '/alaouy/youtube/src/Youtube.php',
     'Alaouy\\Youtube\\YoutubeServiceProvider' => $vendorDir . '/alaouy/youtube/src/YoutubeServiceProvider.php',
+=======
+>>>>>>> origin/staging
     'Algolia\\AlgoliaSearch\\AccountClient' => $vendorDir . '/algolia/algoliasearch-client-php/src/AccountClient.php',
     'Algolia\\AlgoliaSearch\\Algolia' => $vendorDir . '/algolia/algoliasearch-client-php/src/Algolia.php',
     'Algolia\\AlgoliaSearch\\AnalyticsClient' => $vendorDir . '/algolia/algoliasearch-client-php/src/AnalyticsClient.php',
@@ -780,8 +783,11 @@ return array(
     'Aws\\Multipart\\UploadState' => $vendorDir . '/aws/aws-sdk-php/src/Multipart/UploadState.php',
     'Aws\\Neptune\\Exception\\NeptuneException' => $vendorDir . '/aws/aws-sdk-php/src/Neptune/Exception/NeptuneException.php',
     'Aws\\Neptune\\NeptuneClient' => $vendorDir . '/aws/aws-sdk-php/src/Neptune/NeptuneClient.php',
+<<<<<<< HEAD
     'Aws\\Neptunedata\\Exception\\NeptunedataException' => $vendorDir . '/aws/aws-sdk-php/src/Neptunedata/Exception/NeptunedataException.php',
     'Aws\\Neptunedata\\NeptunedataClient' => $vendorDir . '/aws/aws-sdk-php/src/Neptunedata/NeptunedataClient.php',
+=======
+>>>>>>> origin/staging
     'Aws\\NetworkFirewall\\Exception\\NetworkFirewallException' => $vendorDir . '/aws/aws-sdk-php/src/NetworkFirewall/Exception/NetworkFirewallException.php',
     'Aws\\NetworkFirewall\\NetworkFirewallClient' => $vendorDir . '/aws/aws-sdk-php/src/NetworkFirewall/NetworkFirewallClient.php',
     'Aws\\NetworkManager\\Exception\\NetworkManagerException' => $vendorDir . '/aws/aws-sdk-php/src/NetworkManager/Exception/NetworkManagerException.php',
@@ -814,8 +820,11 @@ return array(
     'Aws\\PaymentCryptographyData\\PaymentCryptographyDataClient' => $vendorDir . '/aws/aws-sdk-php/src/PaymentCryptographyData/PaymentCryptographyDataClient.php',
     'Aws\\PaymentCryptography\\Exception\\PaymentCryptographyException' => $vendorDir . '/aws/aws-sdk-php/src/PaymentCryptography/Exception/PaymentCryptographyException.php',
     'Aws\\PaymentCryptography\\PaymentCryptographyClient' => $vendorDir . '/aws/aws-sdk-php/src/PaymentCryptography/PaymentCryptographyClient.php',
+<<<<<<< HEAD
     'Aws\\PcaConnectorAd\\Exception\\PcaConnectorAdException' => $vendorDir . '/aws/aws-sdk-php/src/PcaConnectorAd/Exception/PcaConnectorAdException.php',
     'Aws\\PcaConnectorAd\\PcaConnectorAdClient' => $vendorDir . '/aws/aws-sdk-php/src/PcaConnectorAd/PcaConnectorAdClient.php',
+=======
+>>>>>>> origin/staging
     'Aws\\PersonalizeEvents\\Exception\\PersonalizeEventsException' => $vendorDir . '/aws/aws-sdk-php/src/PersonalizeEvents/Exception/PersonalizeEventsException.php',
     'Aws\\PersonalizeEvents\\PersonalizeEventsClient' => $vendorDir . '/aws/aws-sdk-php/src/PersonalizeEvents/PersonalizeEventsClient.php',
     'Aws\\PersonalizeRuntime\\Exception\\PersonalizeRuntimeException' => $vendorDir . '/aws/aws-sdk-php/src/PersonalizeRuntime/Exception/PersonalizeRuntimeException.php',
@@ -1428,7 +1437,10 @@ return array(
     'DebugBar\\Bridge\\SlimCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/SlimCollector.php',
     'DebugBar\\Bridge\\SwiftMailer\\SwiftLogCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/SwiftMailer/SwiftLogCollector.php',
     'DebugBar\\Bridge\\SwiftMailer\\SwiftMailCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/SwiftMailer/SwiftMailCollector.php',
+<<<<<<< HEAD
     'DebugBar\\Bridge\\Symfony\\SymfonyMailCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/Symfony/SymfonyMailCollector.php',
+=======
+>>>>>>> origin/staging
     'DebugBar\\Bridge\\TwigProfileCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/TwigProfileCollector.php',
     'DebugBar\\Bridge\\Twig\\TimeableTwigExtensionProfiler' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/Twig/TimeableTwigExtensionProfiler.php',
     'DebugBar\\Bridge\\Twig\\TraceableTwigEnvironment' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/Twig/TraceableTwigEnvironment.php',
@@ -4397,7 +4409,10 @@ return array(
     'Laravel\\Sanctum\\Guard' => $vendorDir . '/laravel/sanctum/src/Guard.php',
     'Laravel\\Sanctum\\HasApiTokens' => $vendorDir . '/laravel/sanctum/src/HasApiTokens.php',
     'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController' => $vendorDir . '/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php',
+<<<<<<< HEAD
     'Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/AuthenticateSession.php',
+=======
+>>>>>>> origin/staging
     'Laravel\\Sanctum\\Http\\Middleware\\CheckAbilities' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/CheckAbilities.php',
     'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyAbility' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/CheckForAnyAbility.php',
     'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyScope' => $vendorDir . '/laravel/sanctum/src/Http/Middleware/CheckForAnyScope.php',
@@ -4468,7 +4483,10 @@ return array(
     'Laravel\\Socialite\\Two\\GitlabProvider' => $vendorDir . '/laravel/socialite/src/Two/GitlabProvider.php',
     'Laravel\\Socialite\\Two\\GoogleProvider' => $vendorDir . '/laravel/socialite/src/Two/GoogleProvider.php',
     'Laravel\\Socialite\\Two\\InvalidStateException' => $vendorDir . '/laravel/socialite/src/Two/InvalidStateException.php',
+<<<<<<< HEAD
     'Laravel\\Socialite\\Two\\LinkedInOpenIdProvider' => $vendorDir . '/laravel/socialite/src/Two/LinkedInOpenIdProvider.php',
+=======
+>>>>>>> origin/staging
     'Laravel\\Socialite\\Two\\LinkedInProvider' => $vendorDir . '/laravel/socialite/src/Two/LinkedInProvider.php',
     'Laravel\\Socialite\\Two\\ProviderInterface' => $vendorDir . '/laravel/socialite/src/Two/ProviderInterface.php',
     'Laravel\\Socialite\\Two\\SlackProvider' => $vendorDir . '/laravel/socialite/src/Two/SlackProvider.php',
@@ -5446,6 +5464,7 @@ return array(
     'Modules\\FlashSale\\Http\\Requests\\SaveFlashSaleRequest' => $baseDir . '/Modules/FlashSale/Http/Requests/SaveFlashSaleRequest.php',
     'Modules\\FlashSale\\Providers\\FlashSaleServiceProvider' => $baseDir . '/Modules/FlashSale/Providers/FlashSaleServiceProvider.php',
     'Modules\\FlashSale\\Sidebar\\SidebarExtender' => $baseDir . '/Modules/FlashSale/Sidebar/SidebarExtender.php',
+<<<<<<< HEAD
     'Modules\\Galleries\\Admin\\GalleriesTable' => $baseDir . '/Modules/Galleries/Admin/GalleriesTable.php',
     'Modules\\Galleries\\Database\\Seeders\\GalleriesDatabaseSeeder' => $baseDir . '/Modules/Galleries/Database/Seeders/GalleriesDatabaseSeeder.php',
     'Modules\\Galleries\\Entities\\Galleries' => $baseDir . '/Modules/Galleries/Entities/Galleries.php',
@@ -5455,6 +5474,8 @@ return array(
     'Modules\\Galleries\\IconResolver' => $baseDir . '/Modules/Galleries/IconResolver.php',
     'Modules\\Galleries\\Providers\\GalleriesServiceProvider' => $baseDir . '/Modules/Galleries/Providers/GalleriesServiceProvider.php',
     'Modules\\Galleries\\Sidebar\\SidebarExtender' => $baseDir . '/Modules/Galleries/Sidebar/SidebarExtender.php',
+=======
+>>>>>>> origin/staging
     'Modules\\Import\\Http\\Controllers\\Admin\\DownloadCsvController' => $baseDir . '/Modules/Import/Http/Controllers/Admin/DownloadCsvController.php',
     'Modules\\Import\\Http\\Controllers\\Admin\\ImporterController' => $baseDir . '/Modules/Import/Http/Controllers/Admin/ImporterController.php',
     'Modules\\Import\\Http\\Requests\\StoreImporterRequest' => $baseDir . '/Modules/Import/Http/Requests/StoreImporterRequest.php',
@@ -7256,7 +7277,10 @@ return array(
     'Psy\\CodeCleaner\\ValidFunctionNamePass' => $vendorDir . '/psy/psysh/src/CodeCleaner/ValidFunctionNamePass.php',
     'Psy\\Command\\BufferCommand' => $vendorDir . '/psy/psysh/src/Command/BufferCommand.php',
     'Psy\\Command\\ClearCommand' => $vendorDir . '/psy/psysh/src/Command/ClearCommand.php',
+<<<<<<< HEAD
     'Psy\\Command\\CodeArgumentParser' => $vendorDir . '/psy/psysh/src/Command/CodeArgumentParser.php',
+=======
+>>>>>>> origin/staging
     'Psy\\Command\\Command' => $vendorDir . '/psy/psysh/src/Command/Command.php',
     'Psy\\Command\\DocCommand' => $vendorDir . '/psy/psysh/src/Command/DocCommand.php',
     'Psy\\Command\\DumpCommand' => $vendorDir . '/psy/psysh/src/Command/DumpCommand.php',
@@ -7614,7 +7638,10 @@ return array(
     'Razorpay\\Tests\\CoverageTest' => $vendorDir . '/razorpay/razorpay/tests/CoverageTest.php',
     'Razorpay\\Tests\\CustomerTest' => $vendorDir . '/razorpay/razorpay/tests/CustomerTest.php',
     'Razorpay\\Tests\\EmandateTest' => $vendorDir . '/razorpay/razorpay/tests/EmandateTest.php',
+<<<<<<< HEAD
     'Razorpay\\Tests\\ExceptionTest' => $vendorDir . '/razorpay/razorpay/tests/ExceptionTest.php',
+=======
+>>>>>>> origin/staging
     'Razorpay\\Tests\\FundTest' => $vendorDir . '/razorpay/razorpay/tests/FundTest.php',
     'Razorpay\\Tests\\InvoiceTest' => $vendorDir . '/razorpay/razorpay/tests/InvoiceTest.php',
     'Razorpay\\Tests\\ItemTest' => $vendorDir . '/razorpay/razorpay/tests/ItemTest.php',

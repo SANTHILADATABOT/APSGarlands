@@ -40,6 +40,10 @@
     "Rewardpoints": true,
     "Testimonial": true,
     "Fixedrate": true,
+<<<<<<< HEAD
     "Pickupstore": true,
     "Galleries": true
+=======
+    "Pickupstore": true
+>>>>>>> origin/staging
 }

@@ -57,8 +57,11 @@ class App
             'testimonial_slider_enabled' => true,
             'my_testimonial_enabled' => true,
             'cookie_bar_enabled' => true,
+<<<<<<< HEAD
             'galleries_enabled'=>false,
             
+=======
+>>>>>>> origin/staging
             'supported_currencies' => ['USD'],
             'default_currency' => 'USD',
             'send_order_invoice_email' => false,

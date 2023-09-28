@@ -120,7 +120,10 @@
     @if (setting('testimonial_slider_enabled'))
         <script>
             $(document).ready(function() {
+<<<<<<< HEAD
                 console.log("loaded");
+=======
+>>>>>>> origin/staging
                 $.ajax({
                     url: '{{ route('testimonials.slider') }}',
                     method: 'GET',
@@ -135,7 +138,11 @@
                             margin: 0,
                             autoplay: true,
                             dots: true,
+<<<<<<< HEAD
                             autoplayTimeout: 5000,
+=======
+                            autoplayTimeout: 2000,
+>>>>>>> origin/staging
                             smartSpeed: 450,
                             responsive: {
                                 0: {
@@ -154,6 +161,7 @@
                         console.error('Error loading testimonials');
                     }
                 });
+<<<<<<< HEAD
 
                 $.ajax({
                     url: '{{ route('galleries.slider') }}',
@@ -187,6 +195,8 @@
                         console.error('Error loading galleries');
                     }
                 });
+=======
+>>>>>>> origin/staging
             });
         </script>
     @endif

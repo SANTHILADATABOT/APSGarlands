@@ -102,7 +102,11 @@ return [
         'confirm_password' => 'Confirm Password',
         'save_changes' => 'SAVE CHANGES',
         'image_url' => 'Upload Image',
+<<<<<<< HEAD
         'profile_image' => 'Profile Image',
         'no_profile_image' => ' Not Available'
+=======
+        'profile_image' => 'Profile Image'
+>>>>>>> origin/staging
     ],
 ];

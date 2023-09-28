@@ -11,8 +11,12 @@ return [
     'reviews_enabled' => 'Reviews & Ratings',
     'auto_approve_reviews' => 'Auto Approve Reviews',
     'cookie_bar_enabled' => 'Cookie Bar',
+<<<<<<< HEAD
     'galleries_enabled' => 'Youtube Galleries',
     
+=======
+
+>>>>>>> origin/staging
     'maintenance_mode' => 'Maintenance Mode',
 
     'translatable.store_tagline' => 'Store Tagline',

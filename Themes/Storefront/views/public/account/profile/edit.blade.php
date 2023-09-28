@@ -111,10 +111,14 @@
                                 @if(auth()->user()->image_url)
                                     <img src="{{ auth()->user()->image_url }}" alt="User Profile Image"
                                     width="100px" height="100px">
+<<<<<<< HEAD
                                 @else
                                 <span>{{ trans('storefront::account.profile.no_profile_image') }}</span>
                                 @endif
                                 
+=======
+                                @endif
+>>>>>>> origin/staging
                             </div>
                         </div>
                     <div class="col-md-9">
